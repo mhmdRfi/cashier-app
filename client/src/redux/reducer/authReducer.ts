@@ -63,7 +63,7 @@ export const login = (email: string, password: string) => {
 	return async (dispatch: Dispatch) => {
 		try {
 			const res = await axios.post(
-				`${import.meta.env.APP_API_BASE_URL}/auth/login`,
+				`${import.meta.env.VITE_APP_API_BASE_URL}/auth/login`,
 				{
 					email,
 					password,
