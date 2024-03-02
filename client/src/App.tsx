@@ -1,35 +1,35 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { Box } from "@chakra-ui/react";
+// import { Routes, Route } from "react-router-dom";
+// import { Home } from "./pages/Home";
+// import { Transaction } from "./pages/Transaction";
+// import Login from "./pages/Login/Login";
+// import Auth from "./components/Auth/Auth";
+// import Cashier from "./pages/Cashier/Cashier";
+// import { Home } from "./pages/Home/index";
+// import ForgotPassword from "./pages/ForgotPassword/ForgotPassword";
+// import SetNewPassword from "./pages/ForgotPassword/SetNewPassword";
+// import AdminRoute from "./components/Auth/AdminRoute";
+// import {
+// 	LoggedInRoute,
+// 	LogInRoute,
+// } from "./components/Auth/LoggedInUserRoute";
+// // import "./App.css";
+// import { ProductLists } from "./pages/ProductLists/ProductLists";
+// import { ProductDetail } from "./pages/ProductDetail/ProductDetail";
+// import { SidebarWithHeader } from "./components/SideBar/SideBar";
+// import { Report } from "./pages/Report/Report";
+// import { AddProduct } from "./pages/AddProduct/AddProduct";
+// import { EditProduct } from "./pages/EditProduct/EditProduct";
+// import { CategoryLists } from "./pages/CategoryLists/CategoryLists";
+// import { DashboardAdmin } from "./pages/DashboardAdmin/DashboardAdmin";
+// import { TransactionDetail } from "./pages/TransactionDetail/TransactionDetail";
 
 function App() {
-  const [count, setCount] = useState(0)
-
-  return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+	return (
+		<Box>
+			
+		</Box>
+	);
 }
 
-export default App
+export default App;
