@@ -1,7 +1,7 @@
 {
   "version": 2,
-  "builds": [{ "src": "./src/index.ts", "use": "@vercel/node" }],
-  "routes": [{ "src": "/(.*)", "dest": "/" }],
+  "builds": [{ "src": "src/index.ts", "use": "@vercel/node" }],
+  "routes": [{ "src": "/(.*)", "dest": "src/index.ts" }],
   "env": {
     "DATABASE_URL": "mysql://root:Kepuhrubuh1994@localhost:3306/jcwd021001",
     "PORT": "8080",
