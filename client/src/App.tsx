@@ -1,8 +1,9 @@
 import { Box } from "@chakra-ui/react";
+import { Route, Routes } from "react-router-dom";
 // import { Routes, Route } from "react-router-dom";
 // import { Home } from "./pages/Home";
 // import { Transaction } from "./pages/Transaction";
-// import Login from "./pages/Login/Login";
+import Login from "./pages/Login/Login";
 // import Auth from "./components/Auth/Auth";
 // import Cashier from "./pages/Cashier/Cashier";
 // import { Home } from "./pages/Home/index";
@@ -27,7 +28,14 @@ import { Box } from "@chakra-ui/react";
 function App() {
 	return (
 		<Box>
-			
+			<Routes>
+      <Route
+						path="/"
+						element={
+								<Login />
+						}
+					/>
+      </Routes>
 		</Box>
 	);
 }
