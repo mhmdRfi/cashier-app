@@ -3,7 +3,6 @@ import bodyParser from "body-parser";
 import cors from "cors";
 import path from "path"
 import dotenv from 'dotenv';
-import {Request, Response} from "express";
 
 dotenv.config({
     path: path.resolve(__dirname, '../.env'),
@@ -21,10 +20,6 @@ app.use(
 		//   : undefined,
 	})
 );
-
-app.use("/", (req: Request, res: Response) => {
-	res.send("server is running")
-})
 
 import authRouter from "./routes/authRouter"
 // import userRouter from "./routes/userRouter";

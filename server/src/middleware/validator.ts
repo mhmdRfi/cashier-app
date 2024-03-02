@@ -3,7 +3,7 @@ import { Request, Response, NextFunction } from "express";
 
 const validator = (validations: any) => {
     return async (req: Request, res: Response, next: NextFunction) => {
-        for (let validation of validations){
+        for (const validation of validations){
             const result = await validation.run(req);
             if(result.errors.length) break;
         }

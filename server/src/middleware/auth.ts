@@ -2,11 +2,9 @@ import jwt, {Secret} from "jsonwebtoken"
 import { Request, Response, NextFunction } from "express"
 import { User } from "./user";
 
-declare global {
-    namespace Express {
-        interface Request {
-            user? : User
-        }
+declare module 'express' {
+    interface Request {
+        user?: User;
     }
 }
 
