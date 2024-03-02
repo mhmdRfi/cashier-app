@@ -26,7 +26,7 @@ app.use("/", (req: Request, res: Response) => {
 	res.send("server is running")
 })
 
-// import authRouter from "./routes/authRouter"
+import authRouter from "./routes/authRouter"
 // import userRouter from "./routes/userRouter";
 // import transactionRouter from "./routes/transactionRouter";
 // import cashierProductRouter from "./routes/cashierProductRouter";
@@ -36,7 +36,7 @@ app.use("/", (req: Request, res: Response) => {
 // app.use('/products', productRouter)
 // app.use('/report', reportRouter)
 
-// app.use("/auth", authRouter);
+app.use("/auth", authRouter);
 // app.use("/user", userRouter);
 
 // app.use("/transaction", transactionRouter);
