@@ -22,7 +22,7 @@ app.use(
 	})
 );
 
-app.use("/server", (req: Request, res: Response) => {
+app.use("/", (req: Request, res: Response) => {
 	res.send("server is running")
 })
 
