@@ -41,7 +41,7 @@ function Login() {
 				} else if (user.roleId === 2) {
 					navigate("/cashier");
 				} else {
-					toast.error("Login gagal");
+					toast.error("Login failed");
 				}
 			}
 		},
