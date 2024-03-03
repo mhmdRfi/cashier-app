@@ -29,6 +29,7 @@ function App() {
     <Box>
       <Routes>
         <Route path="/" element={<Login />} />
+        <Route path="/login" element={<Login />} />
         <Route path="/cashier-data" element={<Cashier />} />
       </Routes>
     </Box>
