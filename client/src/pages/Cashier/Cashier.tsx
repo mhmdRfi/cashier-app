@@ -74,7 +74,7 @@ function Cashier() {
 	const fetchInactiveCashier = async () => {
 		try {
 			const response = await axios.get(
-				"http://localhost:8080/user/inactive-cashier",
+				`${import.meta.env.VITE_APP_API_BASE_URL}/user/inactive-cashier`,
 				{
 					headers: {
 						Authorization: `Bearer ${token}`,
