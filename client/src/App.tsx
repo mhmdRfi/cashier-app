@@ -1,11 +1,10 @@
 import { Box } from "@chakra-ui/react";
 import { Route, Routes } from "react-router-dom";
-// import { Routes, Route } from "react-router-dom";
 // import { Home } from "./pages/Home";
 // import { Transaction } from "./pages/Transaction";
 import Login from "./pages/Login/Login";
 // import Auth from "./components/Auth/Auth";
-// import Cashier from "./pages/Cashier/Cashier";
+import Cashier from "./pages/Cashier/Cashier";
 // import { Home } from "./pages/Home/index";
 // import ForgotPassword from "./pages/ForgotPassword/ForgotPassword";
 // import SetNewPassword from "./pages/ForgotPassword/SetNewPassword";
@@ -26,18 +25,14 @@ import Login from "./pages/Login/Login";
 // import { TransactionDetail } from "./pages/TransactionDetail/TransactionDetail";
 
 function App() {
-	return (
-		<Box>
-			<Routes>
-      <Route
-						path="/"
-						element={
-								<Login />
-						}
-					/>
+  return (
+    <Box>
+      <Routes>
+        <Route path="/" element={<Login />} />
+        <Route path="/cashier-data" element={<Cashier />} />
       </Routes>
-		</Box>
-	);
+    </Box>
+  );
 }
 
 export default App;
