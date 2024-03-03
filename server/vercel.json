@@ -17,7 +17,7 @@
       { "src": "/(.*)", "dest": "src/index.ts" }
     ],
     "env": {
-      "DATABASE_URL": "mysql://mahmud:Kepuhrubuh1994@192.168.1.7:3306/jcwd021001",
+      "DATABASE_URL": "mysql://u1103648_admin:Kepuhrubuh1994@185.229.118.90:3306/u1103648_jcwd021001",
       "PORT": "8080",
       "JWT_SECRET_KEY": "SerVond",
       "GMAIL_USER": "jcwd021001@gmail.com",
