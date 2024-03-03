@@ -23,7 +23,7 @@ app.use(
 );
 
 import authRouter from "./routes/authRouter"
-// import userRouter from "./routes/userRouter";
+import userRouter from "./routes/userRouter";
 // import transactionRouter from "./routes/transactionRouter";
 // import cashierProductRouter from "./routes/cashierProductRouter";
 // import productRouter from './routes/productRouter'
@@ -33,7 +33,7 @@ import authRouter from "./routes/authRouter"
 // app.use('/report', reportRouter)
 
 app.use("/auth", authRouter);
-// app.use("/user", userRouter);
+app.use("/user", userRouter);
 
 // app.use("/transaction", transactionRouter);
 // app.use("/product", cashierProductRouter);
