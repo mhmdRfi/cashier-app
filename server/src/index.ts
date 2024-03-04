@@ -1,7 +1,7 @@
 import express from "express";
 import bodyParser from "body-parser";
 import cors from "cors";
-import path from "path"
+import path from "path";
 import dotenv from 'dotenv';
 
 
@@ -38,10 +38,10 @@ app.use("/user", userRouter);
 // app.use("/transaction", transactionRouter);
 // app.use("/product", cashierProductRouter);
 
-// app.use(
-// 	"/uploads",
-// 	express.static(path.join(__dirname, "./public/images"))
-// );
+app.use(
+	"/uploads",
+	express.static(path.join(__dirname, "./public/images"))
+);
 
 app.listen(port, () => {
     console.log((`server started on port ${port}`));
