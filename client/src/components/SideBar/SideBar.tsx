@@ -117,8 +117,8 @@ const NavItem = ({ icon, children, to, ...rest }: NavItemProps) => {
 	return (
 		<Link to={to} style={{ textDecoration: "none" }}>
 			<Box
-				as="a"
-				href="#"
+				// as="a"
+				// href="#"
 				style={{ textDecoration: "none" }}
 				_focus={{ boxShadow: "none" }}
 				padding={"16px"}

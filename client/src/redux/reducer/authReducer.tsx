@@ -36,6 +36,8 @@ const authReducer = createSlice({
 	initialState,
 	reducers: {
 		setUser: (state, action: PayloadAction<User>) => {
+			console.log('Action:', action);
+  console.log('Payload:', action.payload);
 			const { id, email, username, avatar, roleId } = action.payload;
 
 			state.user = {
@@ -45,6 +47,7 @@ const authReducer = createSlice({
 				avatar,
 				roleId,
 			};
+			console.log("ini user", state.user);
 		},
 		loginSuccess: (state) => {
 			state.isLogin = true;
@@ -94,7 +97,7 @@ export const keepLogin = () => {
 			const token = localStorage.getItem("token");
 
       if (token){
-        const res = await axios.get(`${import.meta.env.APP_API_BASE_URL}/auth/keep-login`, {
+        const res = await axios.get(`${import.meta.env.VITE_APP_API_BASE_URL}/auth/keep-login`, {
           headers: {
             Authorization: `Bearer ${token}`
           }

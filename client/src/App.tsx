@@ -3,17 +3,14 @@ import { Route, Routes } from "react-router-dom";
 // import { Home } from "./pages/Home";
 // import { Transaction } from "./pages/Transaction";
 import Login from "./pages/Login/Login";
-// import Auth from "./components/Auth/Auth";
+import Auth from "./components/Auth/Auth";
 import Cashier from "./pages/Cashier/Cashier";
 // import { Home } from "./pages/Home/index";
-// import ForgotPassword from "./pages/ForgotPassword/ForgotPassword";
-// import SetNewPassword from "./pages/ForgotPassword/SetNewPassword";
-// import AdminRoute from "./components/Auth/AdminRoute";
-// import {
-// 	LoggedInRoute,
-// 	LogInRoute,
-// } from "./components/Auth/LoggedInUserRoute";
-// // import "./App.css";
+import ForgotPassword from "./pages/ForgotPassword/ForgotPassword";
+import SetNewPassword from "./pages/ForgotPassword/SetNewPassword";
+import AdminRoute from "./components/Auth/AdminRoute";
+import { LoggedInRoute, LogInRoute } from "./components/Auth/LoggedInUserRoute";
+// import "./App.css";
 // import { ProductLists } from "./pages/ProductLists/ProductLists";
 // import { ProductDetail } from "./pages/ProductDetail/ProductDetail";
 // import { SidebarWithHeader } from "./components/SideBar/SideBar";
@@ -27,11 +24,43 @@ import Cashier from "./pages/Cashier/Cashier";
 function App() {
   return (
     <Box>
-      <Routes>
-        <Route path="/" element={<Login />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/cashier-data" element={<Cashier />} />
-      </Routes>
+      <Auth>
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <LogInRoute>
+                <Login />
+              </LogInRoute>
+            }
+          />
+
+          <Route
+            path="/cashier-data"
+            element={
+              <AdminRoute>
+                <Cashier />
+              </AdminRoute>
+            }
+          />
+          <Route
+            path="/forgot-password"
+            element={
+              <LogInRoute>
+                <ForgotPassword />
+              </LogInRoute>
+            }
+          />
+          <Route
+            path="/auth/reset-password"
+            element={
+              <LogInRoute>
+                <SetNewPassword />
+              </LogInRoute>
+            }
+          />
+        </Routes>
+      </Auth>
     </Box>
   );
 }
