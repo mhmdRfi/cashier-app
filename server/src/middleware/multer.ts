@@ -3,7 +3,7 @@ import multer from "multer"
 
 const avatarStorage = multer.diskStorage({
   destination: (req : Express.Request, res : Express.Response, cb) : void => {
-    cb(null, path.join(__dirname, "../public/images/avatar"))
+    cb(null, path.join(__dirname, "../../public/images/avatar"))
   },
   filename: (req : Express.Request, file : Express.Multer.File, cb) : void => {
     cb(null, `avatar_${Date.now()}-${file.originalname}`)
