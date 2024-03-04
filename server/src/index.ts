@@ -40,7 +40,7 @@ app.use("/user", userRouter);
 
 app.use(
 	"/uploads",
-	express.static(path.join(__dirname, "./public/images"))
+	express.static(path.join(__dirname, "public/images"))
 );
 
 app.listen(port, () => {
