@@ -72,7 +72,7 @@ export const Transaction = () => {
 		(state: RootState) => state.authReducer.user.id
 	);
 
-	const [total, setTotal] = useState<number>(
+	const [total] = useState<number>(
 		transactionPrice + transactionPrice * (10 / 100)
 	);
 

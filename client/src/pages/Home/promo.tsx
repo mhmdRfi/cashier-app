@@ -1,13 +1,13 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { Flex, Text, Card, Image, Grid, Box } from "@chakra-ui/react";
+import { Flex, Text, Card, Image, Grid } from "@chakra-ui/react";
 import promo1 from "../../assets/promo1.jpg";
 import promo2 from "../../assets/promo2.jpg";
 import promo3 from "../../assets/promo3.jpg";
 import { useState } from "react";
 
 export const Promo: React.FC = () => {
-	const [size, setSize] = useState<number>(
+	const [size] = useState<number>(
 		window.innerWidth < 900 ? 2 : 3
 	);
 

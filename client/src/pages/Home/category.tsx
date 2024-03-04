@@ -41,7 +41,7 @@ export const Category = ({ productName }: any) => {
   const [activeButton, setActiveButton] = useState<string>("All");
   const dispatch = useDispatch();
   const [page, setPage] = useState<number>(1);
-  const [size, setSize] = useState<number>(window.innerWidth < 900 ? 12 : 9);
+  const [size] = useState<number>(window.innerWidth < 900 ? 12 : 9);
   const [category, setCatogory] = useState<number>();
   const [totalPage, setTotalPage] = useState<number>();
 
