@@ -9,7 +9,7 @@ import Cashier from "./pages/Cashier/Cashier";
 import ForgotPassword from "./pages/ForgotPassword/ForgotPassword";
 import SetNewPassword from "./pages/ForgotPassword/SetNewPassword";
 import AdminRoute from "./components/Auth/AdminRoute";
-import { LoggedInRoute, LogInRoute } from "./components/Auth/LoggedInUserRoute";
+import {  LogInRoute } from "./components/Auth/LoggedInUserRoute";
 // import "./App.css";
 // import { ProductLists } from "./pages/ProductLists/ProductLists";
 // import { ProductDetail } from "./pages/ProductDetail/ProductDetail";
