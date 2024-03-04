@@ -24,8 +24,8 @@ app.use(
 
 import authRouter from "./routes/authRouter"
 import userRouter from "./routes/userRouter";
-// import transactionRouter from "./routes/transactionRouter";
-// import cashierProductRouter from "./routes/cashierProductRouter";
+import transactionRouter from "./routes/transactionRouter";
+import cashierProductRouter from "./routes/cashierProductRouter";
 // import productRouter from './routes/productRouter'
 // import reportRouter from './routes/reportRouter'
 
@@ -35,8 +35,8 @@ import userRouter from "./routes/userRouter";
 app.use("/auth", authRouter);
 app.use("/user", userRouter);
 
-// app.use("/transaction", transactionRouter);
-// app.use("/product", cashierProductRouter);
+app.use("/transaction", transactionRouter);
+app.use("/product", cashierProductRouter);
 
 app.use(
 	"/uploads",
