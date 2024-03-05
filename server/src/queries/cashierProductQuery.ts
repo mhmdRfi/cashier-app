@@ -52,6 +52,7 @@ const getCashierProductQuery = async (
 		return {result, totalPage};
 	} catch (err) {
 		console.log("ini error", err);
+		console.log("ini error lagi", err);
 		
 		throw err;
 	}
