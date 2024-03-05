@@ -17,12 +17,18 @@ function formatPriceToIDR(price: number) {
     currency: 'IDR',
   }).format(price);
 }
+interface CategoryItem {
+  category: {
+    id: string;
+    category: string;
+  };
+}
 
 const AddProduct = () => {
   const [dataCategory, setDataCategory] = useState([])
   const [fieldImage, setFieldImage] = useState(null);
   const [selectedImage, setSelectedImage] = useState('');
-  const [selectedC, setSelectedC] = useState([]);
+  const [selectedC, setSelectedC] = useState<CategoryItem[]>([]);
   const navigate = useNavigate();
   const [name, setName] = useState("");
   const [quantity, setQuantity] = useState<number>(0);
@@ -74,10 +80,11 @@ const AddProduct = () => {
   useEffect(() => {
       fetchCategory();
   }, [])
-
+  let priceFinal: number;
   if (markupPercentage !== undefined) {
-  const priceFinal: number = Number(mainPrice) + (mainPrice * markupPercentage / 100)
-  console.log(priceFinal);}
+    priceFinal = Number(mainPrice) + (mainPrice * markupPercentage / 100);
+    console.log(priceFinal);
+  }
   
   
 
@@ -86,17 +93,17 @@ const AddProduct = () => {
         const formData = new FormData();
         // const name1 = "category"
       formData.append("name", name);
-      formData.append("price", Number(priceFinal));
-      formData.append("quantity", quantity);
+      formData.append("price", priceFinal.toString());
+      formData.append("quantity", quantity.toString());
       formData.append("description", description);
-      formData.append("product", fieldImage);
+      formData.append("product", fieldImage.toString());
     //   formData.append("category", selectedC);
 
     selectedC.forEach((item, i) => {
         formData.append(`category[${i}][id]`, item.category.id);
         formData.append(`category[${i}][category]`, item.category.category);
       });
-      formData.append("markup", markupPercentage);
+      formData.append("markup", markupPercentage.toString());
       formData.append("sku", sku);
 
       await axios.post(
