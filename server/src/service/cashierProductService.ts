@@ -22,6 +22,7 @@ const getCashierProductService = async (
 		);
 		return res;
 	} catch (err) {
+		console.log("ini error", err);
 		throw err;
 	}
 };
@@ -30,6 +31,7 @@ const getCashierProductPromoService = async () => {
 		const res = await getCashierProductPromoQuery();
 		return res;
 	} catch (err) {
+		console.log("ini error", err);
 		throw err;
 	}
 };

@@ -1,4 +1,4 @@
-import { Prisma, PrismaClient } from "@prisma/client";
+import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();
 
@@ -51,6 +51,8 @@ const getCashierProductQuery = async (
 
 		return {result, totalPage};
 	} catch (err) {
+		console.log("ini error", err);
+		
 		throw err;
 	}
 };
@@ -60,6 +62,7 @@ const getCashierProductPromoQuery = async () => {
 		const result = await prisma.products.findMany();
 		return result;
 	} catch (err) {
+		console.log("ini error", err);
 		throw err;
 	}
 };
