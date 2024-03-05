@@ -15,7 +15,7 @@ import {  LoggedInRoute, LogInRoute } from "./components/Auth/LoggedInUserRoute"
 // import { ProductDetail } from "./pages/ProductDetail/ProductDetail";
 // import { SidebarWithHeader } from "./components/SideBar/SideBar";
 // import { Report } from "./pages/Report/Report";
-// import { AddProduct } from "./pages/AddProduct/AddProduct";
+import { AddProduct } from "./pages/AddProduct/AddProduct";
 // import { EditProduct } from "./pages/EditProduct/EditProduct";
 // import { CategoryLists } from "./pages/CategoryLists/CategoryLists";
 // import { DashboardAdmin } from "./pages/DashboardAdmin/DashboardAdmin";
@@ -76,6 +76,7 @@ function App() {
 							</LoggedInRoute>
 						}
 					/>
+          <Route path="/add-product" element={<AddProduct />} />
         </Routes>
       </Auth>
     </Box>
