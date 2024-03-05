@@ -26,10 +26,10 @@ import authRouter from "./routes/authRouter"
 import userRouter from "./routes/userRouter";
 import transactionRouter from "./routes/transactionRouter";
 import cashierProductRouter from "./routes/cashierProductRouter";
-// import productRouter from './routes/productRouter'
+import productRouter from './routes/productRouter'
 // import reportRouter from './routes/reportRouter'
 
-// app.use('/products', productRouter)
+app.use('/products', productRouter)
 // app.use('/report', reportRouter)
 
 app.use("/auth", authRouter);
