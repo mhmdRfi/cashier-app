@@ -48,15 +48,15 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { SidebarWithHeader } from "../../components/SideBar/SideBar";
-import * as pdfMake from 'pdfmake/build/pdfmake.js';
-import * as pdfFonts from 'pdfmake/build/vfs_fonts.js';
-const pdfMakeWithFonts = {
-	...pdfMake,
-	vfs: pdfFonts.pdfMake.vfs,
-  };
+// import * as pdfMake from 'pdfmake/build/pdfmake.js';
+// import * as pdfFonts from 'pdfmake/build/vfs_fonts.js';
+// const pdfMakeWithFonts = {
+// 	...pdfMake,
+// 	vfs: pdfFonts.pdfMake.vfs,
+//   };
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { PageOrientation, TDocumentDefinitions } from "pdfmake/interfaces";
+// import { PageOrientation, TDocumentDefinitions } from "pdfmake/interfaces";
 
 interface Product {
   id: number;
@@ -185,77 +185,77 @@ const ProductLists = () => {
     }
   };
 
-  useEffect(() => {
-    if (data) {
-      // Call exportToPDF here, as data is now updated
-      exportToPDF;
-    }
-  }, [data]);
+//   useEffect(() => {
+//     if (data) {
+//       // Call exportToPDF here, as data is now updated
+//       exportToPDF;
+//     }
+//   }, [data]);
 
-  const exportToPDF = () => {
-    if (data) {
-      const docDefinition: TDocumentDefinitions = {
-        content: [
-          { text: "Product List", style: "header" },
-          "\n",
-          {
-            table: {
-              headerRows: 1,
-              widths: [
-                "auto",
-                "auto",
-                "auto",
-                "auto",
-                "auto",
-                "auto",
-                "auto",
-                "auto",
-                "auto",
-                "auto",
-              ],
-              body: [
-                [
-                  "ID",
-                  "Name",
-                  "SKU",
-                  "Price",
-                  "MarkUp (%)",
-                  "Description",
-                  "Status",
-                  "Quantity",
-                  "Created At",
-                  "Updated At",
-                ],
-                ...data.products.map((product) => [
-                  product.id,
-                  product.name,
-                  product.sku,
-                  formatPriceToIDR(product.price),
-                  product.markup,
-                  product.description,
-                  product.status,
-                  product.quantity,
-                  new Date(product.created_at).toLocaleString(),
-                  new Date(product.updated_at).toLocaleString(),
-                ]),
-              ],
-            },
-          },
-        ],
-        styles: {
-          header: {
-            fontSize: 18,
-            bold: true,
-            alignment: "center",
-          },
-        },
-        pageOrientation: "landscape" as PageOrientation, 
-      };
+//   const exportToPDF = () => {
+//     if (data) {
+//       const docDefinition: TDocumentDefinitions = {
+//         content: [
+//           { text: "Product List", style: "header" },
+//           "\n",
+//           {
+//             table: {
+//               headerRows: 1,
+//               widths: [
+//                 "auto",
+//                 "auto",
+//                 "auto",
+//                 "auto",
+//                 "auto",
+//                 "auto",
+//                 "auto",
+//                 "auto",
+//                 "auto",
+//                 "auto",
+//               ],
+//               body: [
+//                 [
+//                   "ID",
+//                   "Name",
+//                   "SKU",
+//                   "Price",
+//                   "MarkUp (%)",
+//                   "Description",
+//                   "Status",
+//                   "Quantity",
+//                   "Created At",
+//                   "Updated At",
+//                 ],
+//                 ...data.products.map((product) => [
+//                   product.id,
+//                   product.name,
+//                   product.sku,
+//                   formatPriceToIDR(product.price),
+//                   product.markup,
+//                   product.description,
+//                   product.status,
+//                   product.quantity,
+//                   new Date(product.created_at).toLocaleString(),
+//                   new Date(product.updated_at).toLocaleString(),
+//                 ]),
+//               ],
+//             },
+//           },
+//         ],
+//         styles: {
+//           header: {
+//             fontSize: 18,
+//             bold: true,
+//             alignment: "center",
+//           },
+//         },
+//         pageOrientation: "landscape" as PageOrientation, 
+//       };
 
-      toast.success("Success converted to pdf...");
-      pdfMakeWithFonts.createPdf(docDefinition).download("product_list.pdf");
-    }
-  };
+//       toast.success("Success converted to pdf...");
+//       pdfMakeWithFonts.createPdf(docDefinition).download("product_list.pdf");
+//     }
+//   };
 
   const fetchCategory = async () => {
     try {
@@ -404,14 +404,14 @@ const ProductLists = () => {
               </ModalContent>
             </Modal>
             <Spacer />
-            <Button
+            {/* <Button
               onClick={exportToPDF}
               borderRadius="full"
               border="solid 1px black"
               leftIcon={<IconArrowNarrowDown />}
             >
               Download
-            </Button>
+            </Button> */}
             <Button
               leftIcon={<IconList />}
               borderRadius="full"
