@@ -41,7 +41,6 @@ import {
   IconTags,
   IconError404,
   IconEditCircle,
-  IconArrowNarrowDown,
   IconTrashX,
 } from "@tabler/icons-react";
 import { useEffect, useState } from "react";
