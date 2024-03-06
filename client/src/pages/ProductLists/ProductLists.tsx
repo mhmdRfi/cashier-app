@@ -48,9 +48,12 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { SidebarWithHeader } from "../../components/SideBar/SideBar";
-import pdfMake from "pdfmake/build/pdfmake";
-import pdfFonts from "pdfmake/build/vfs_fonts";
-pdfMake.vfs = pdfFonts.pdfMake.vfs;
+import * as pdfMake from 'pdfmake/build/pdfmake.js';
+import * as pdfFonts from 'pdfmake/build/vfs_fonts.js';
+const pdfMakeWithFonts = {
+	...pdfMake,
+	vfs: pdfFonts.pdfMake.vfs,
+  };
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { PageOrientation, TDocumentDefinitions } from "pdfmake/interfaces";
@@ -250,7 +253,7 @@ const ProductLists = () => {
       };
 
       toast.success("Success converted to pdf...");
-      pdfMake.createPdf(docDefinition).download("product_list.pdf");
+      pdfMakeWithFonts.createPdf(docDefinition).download("product_list.pdf");
     }
   };
 
