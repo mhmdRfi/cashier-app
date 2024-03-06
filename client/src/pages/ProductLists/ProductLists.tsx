@@ -25,7 +25,6 @@ import {
   ModalBody,
   ModalFooter,
   VStack,
-  useColorModeValue,
   Select,
 } from "@chakra-ui/react";
 import {
@@ -54,6 +53,7 @@ import pdfFonts from "pdfmake/build/vfs_fonts";
 pdfMake.vfs = pdfFonts.pdfMake.vfs;
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { PageOrientation, TDocumentDefinitions } from "pdfmake/interfaces";
 
 interface Product {
   id: number;
@@ -99,7 +99,6 @@ const ProductLists = () => {
   const [categoryId, setCategoryId] = useState<string>("");
   const [productName, setProductName] = useState("");
   const [viewMode, setViewMode] = useState("list");
-  const [setSelectedItems] = useState<number[]>([]);
   const navigate = useNavigate();
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
@@ -183,16 +182,6 @@ const ProductLists = () => {
     }
   };
 
-  const handleItemClick = (itemId: number) => {
-    setSelectedItems((prevSelectedItems: number[]) => {
-      if (prevSelectedItems.includes(itemId)) {
-        return prevSelectedItems.filter((id) => id !== itemId);
-      } else {
-        return [...prevSelectedItems, itemId];
-      }
-    });
-  };
-
   useEffect(() => {
     if (data) {
       // Call exportToPDF here, as data is now updated
@@ -202,7 +191,7 @@ const ProductLists = () => {
 
   const exportToPDF = () => {
     if (data) {
-      const docDefinition = {
+      const docDefinition: TDocumentDefinitions = {
         content: [
           { text: "Product List", style: "header" },
           "\n",
@@ -257,7 +246,7 @@ const ProductLists = () => {
             alignment: "center",
           },
         },
-        pageOrientation: "landscape",
+        pageOrientation: "landscape" as PageOrientation, 
       };
 
       toast.success("Success converted to pdf...");
@@ -543,17 +532,11 @@ const ProductLists = () => {
                 </Box>
               ) : (
                 <>
-                  <Stack spacing="4" direction="row" flexWrap="wrap">
+                  <Stack spacing="8" direction="row" flexWrap="wrap" justify={"center"} mt={"20px"}>
                     {data?.products &&
                       data?.products.map((item) => (
                         <>
-                          <Card
-                            key={item.id}
-                            maxW="240px"
-                            onClick={() => handleItemClick(item.id)}
-                            bg={"gray.800"}
-                            boxShadow="0px 1px 5px gray"
-                          >
+                          <Card key={item.id} maxW="240px" boxShadow="0px 1px 5px gray">
                             <Image
                               src={`${import.meta.env.VITE_APP_API_BASE_URL}/uploads/products/${
                                 item.image
@@ -592,7 +575,9 @@ const ProductLists = () => {
                                 <Text color="blue.600">{formatPriceToIDR(item.price)}</Text>
                               </Stack>
                             </CardBody>
-                            <Divider />
+                            <Box position="relative" px="5">
+                              <Divider />
+                            </Box>
                             <CardFooter>
                               <ButtonGroup spacing="2">
                                 <Button
@@ -654,7 +639,6 @@ const ProductLists = () => {
                     textColor={selectedPage === pageNumber ? "white" : "#286043"}
                     border={`solid 1px ${selectedPage === pageNumber ? "white" : "#286043"}`}
                     onClick={() => {
-                      
                       if (pageNumber !== "...") {
                         const pageNumberAsNumber = Number(pageNumber);
                         setPage(pageNumberAsNumber);

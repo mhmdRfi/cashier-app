@@ -11,7 +11,7 @@ import SetNewPassword from "./pages/ForgotPassword/SetNewPassword";
 import AdminRoute from "./components/Auth/AdminRoute";
 import {  LoggedInRoute, LogInRoute } from "./components/Auth/LoggedInUserRoute";
 // import "./App.css";
-// import { ProductLists } from "./pages/ProductLists/ProductLists";
+import { ProductLists } from "./pages/ProductLists/ProductLists";
 // import { ProductDetail } from "./pages/ProductDetail/ProductDetail";
 // import { SidebarWithHeader } from "./components/SideBar/SideBar";
 // import { Report } from "./pages/Report/Report";
@@ -77,6 +77,7 @@ function App() {
 						}
 					/>
           <Route path="/add-product" element={<AddProduct />} />
+          <Route path="/product-lists" element={<ProductLists />} />
         </Routes>
       </Auth>
     </Box>
