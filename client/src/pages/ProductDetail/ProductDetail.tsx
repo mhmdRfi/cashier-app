@@ -13,16 +13,35 @@ function formatPriceToIDR(price: number) {
   }).format(price);
 }
 
-function capitalizeFirstLetter(str) {
+function capitalizeFirstLetter(str: any) {
   if (str) {
     return str.charAt(0).toUpperCase() + str.slice(1);
   }
   return str; // return the unchanged string if it's undefined
 }
 
+
+type ProductData = {
+  id: number;
+  image: string;
+  name: string;
+  sku: string;
+  status: string;
+  price: number;
+  markup: number;
+  quantity: number;
+  description: string;
+  categories: {
+    category: {
+      id: string;
+      category: string;
+    }
+  }[];
+};
+
 const ProductDetail = () => {
   const { id } = useParams();
-  const [data, setData] = useState([]);
+  const [data, setData] = useState<ProductData | null>(null);
   const navigate = useNavigate();
 
   const fetchData = async () => {
@@ -56,8 +75,8 @@ const ProductDetail = () => {
             <Box height='max-content' mb='100px'>
             <VStack>
            <Image
-            src={`${import.meta.env.VITE_APP_API_BASE_URL}/uploads/products/${data.image}`}
-            alt={`${data.name}`}
+            src={`${import.meta.env.VITE_APP_API_BASE_URL}/uploads/products/${data ? data.image : ''}`}
+            alt={`${data ? data.name : ''}`}
             boxSize="150px"
             objectFit="cover"
             borderRadius="10px"/> 
@@ -69,11 +88,11 @@ const ProductDetail = () => {
             <Box width='50%'>
             <Text fontSize='large' fontWeight='bold'>Name</Text>
             <FormLabel>Product Name</FormLabel>
-            <Text>{data.name}</Text>
+            <Text>{data ? data.name : ''}</Text>
             </Box>
             <Box pt='27px' width='50%'>
             <FormLabel>Product SKU</FormLabel>
-            <Text>{data.sku}</Text>
+            <Text>{data ? data.sku : ''}</Text>
             </Box>
             <Box pt='27px' width='50%'>
             <FormLabel>Status Product</FormLabel>
@@ -84,19 +103,19 @@ const ProductDetail = () => {
             <Box width='50%'>
             <Text fontSize='large' fontWeight='bold'>Main Price</Text>
             <FormLabel>Price (after markup)</FormLabel>
-            <Text>{formatPriceToIDR(data.price)}</Text>
+            <Text>{formatPriceToIDR(data ? data.price: 0)}</Text>
             </Box>
             <Box pt='27px' width='50%'>
             <FormLabel>MarkUp Percentage</FormLabel>
-            <Text>{data.markup}%</Text>
+            <Text>{data ? data.markup : 0}%</Text>
             </Box>
             <Box pt='27px' width='50%'>
             <FormLabel>Stock</FormLabel>
-            <Text>{data.quantity}</Text>
+            <Text>{data ? data.quantity : 0}</Text>
             </Box>
         </Flex>
         <FormLabel>Description</FormLabel>
-        <Text mb='20px'>{data.description}</Text>
+        <Text mb='20px'>{data ? data.description : ''}</Text>
         <Text fontSize='large' fontWeight='bold'>Category</Text>
         <Flex columnGap="10px" mb="20px ">
         {data?.categories?.map((item) => (

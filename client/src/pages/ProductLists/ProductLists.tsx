@@ -452,7 +452,7 @@ const ProductLists = () => {
               {" "}
               {viewMode === "list" ? (
                 <Box p="20px" boxShadow="0px 1px 5px gray">
-                  <HStack mb="5px">
+                  <HStack m="10px" textAlign="center">
                     <Text fontWeight="bold">Image</Text>
                     <Spacer />
                     <Text fontWeight="bold">Product Name</Text>
@@ -469,7 +469,12 @@ const ProductLists = () => {
                   {data?.products &&
                     data?.products.map((item) => (
                       <>
-                        <HStack m="10px" textAlign="center">
+                        <HStack m="10px" textAlign="center"
+                        justifyContent={'space-between'}
+                        >
+                          <HStack justifyContent={'space-between'} w={'80%'}
+                          cursor={'pointer'}
+                          onClick={() => navigate(`/product-detail/${item.id}`)}>
                           <Image
                             src={`${import.meta.env.VITE_APP_API_BASE_URL}/uploads/products/${
                               item.image || ""
@@ -487,20 +492,21 @@ const ProductLists = () => {
                             isTruncated
                             textOverflow="ellipsis"
                             whiteSpace="nowrap"
-                            onClick={() => navigate(`/product-detail/${item.id}`)}
                           >
                             {item?.name}
                           </Text>
                           <Spacer />
-                          <Text width="120px" textOverflow="ellipsis" whiteSpace="nowrap">
+                          <Text mr={'50px'} width="120px" textOverflow="ellipsis" whiteSpace="nowrap">
                             {formatPriceToIDR(item?.price)}
                           </Text>
+                          <Spacer />
                           {item.quantity == 0 ? (
                             <Box
                               backgroundColor="#fce8ed"
                               fontSize="small"
-                              ml="130px"
-                              mr="100px"
+                              mr={'50px'}
+                              // ml="130px"
+                              // mr="100px"
                               textColor="#dd1c49"
                               p="2px"
                               borderRadius="5px"
@@ -509,10 +515,14 @@ const ProductLists = () => {
                               Out of Stock
                             </Box>
                           ) : (
-                            <Text ml="140px" mr="140px">
+                            <Text 
+                            mr={'50px'}>
                               {item.quantity}
                             </Text>
                           )}
+                          </HStack>
+                          <Spacer />
+                          <HStack>
                           <IconButton
                             icon={<IconEditCircle />}
                             variant="ghost"
@@ -527,6 +537,7 @@ const ProductLists = () => {
                             onClick={() => handleDeleteProduct(item)}
                             aria-label=""
                           />
+                          </HStack>
                         </HStack>
                         <Box as="hr" borderTopWidth="1px" borderTopColor="black.200" />
                       </>
