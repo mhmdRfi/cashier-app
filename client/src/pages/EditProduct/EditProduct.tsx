@@ -60,8 +60,10 @@ type ProductData = {
   quantity: number;
   description: string;
   categories: {
-    category_id: number;
-    category: string;
+    category: {
+      id: string;
+      category: string;
+    }
   }[];
 };
 
@@ -598,7 +600,7 @@ const EditProduct = () => {
                         (selectedCategory) => selectedCategory.category.id === category.id
                       ) &&
                       !data.categories.some(
-                        (selectedCategory) => selectedCategory.category.id === category.id
+                        (selectedCategory) => selectedCategory?.category?.id === category.id
                       )
                   )
                   .map((category) => (
