@@ -18,6 +18,7 @@ import { ProductLists } from "./pages/ProductLists/ProductLists";
 import { AddProduct } from "./pages/AddProduct/AddProduct";
 import { ProductDetail } from "./pages/ProductDetail/ProductDetail";
 import { EditProduct } from "./pages/EditProduct/EditProduct";
+import { CategoryLists } from "./pages/CategoryLists/CategoryLists";
 // import { EditProduct } from "./pages/EditProduct/EditProduct";
 // import { CategoryLists } from "./pages/CategoryLists/CategoryLists";
 // import { DashboardAdmin } from "./pages/DashboardAdmin/DashboardAdmin";
@@ -85,6 +86,7 @@ function App() {
 						element={<ProductDetail />}
 					/>
 					<Route path="/edit-product/:id" element={<EditProduct />} />
+          <Route path="/category-lists" element={<CategoryLists />} />
         </Routes>
       </Auth>
     </Box>
