@@ -16,9 +16,6 @@ import {
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { SidebarWithHeader } from "../../components/SideBar/SideBar";
-import pdfMake from "pdfmake/build/pdfmake";
-import pdfFonts from "pdfmake/build/vfs_fonts";
-pdfMake.vfs = pdfFonts.pdfMake.vfs;
 import {
 	Chart as ChartJS,
 	CategoryScale,
