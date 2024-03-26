@@ -19,7 +19,7 @@ import { ProductDetail } from "./pages/ProductDetail/ProductDetail";
 import { EditProduct } from "./pages/EditProduct/EditProduct";
 import { CategoryLists } from "./pages/CategoryLists/CategoryLists";
 import { DashboardAdmin } from "./pages/DashboardAdmin/DashboardAdmin";
-// import { TransactionDetail } from "./pages/TransactionDetail/TransactionDetail";
+import { TransactionDetail } from "./pages/TransactionDetail/TransactionDetail";
 
 function App() {
   return (
@@ -86,6 +86,10 @@ function App() {
 						element={<DashboardAdmin />}
 					/>
           <Route path="/report" element={<Report />} />
+          <Route
+						path="/transaction-detail/:transactionId"
+						element={<TransactionDetail />}
+					/>
         </Routes>
       </Auth>
     </Box>
