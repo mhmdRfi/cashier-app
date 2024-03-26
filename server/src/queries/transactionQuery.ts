@@ -1,4 +1,4 @@
-import { Prisma, PrismaClient } from "@prisma/client";
+import {  PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();
 
@@ -17,6 +17,7 @@ const createtransactionsQuery = async (
 		});
 		return result;
 	} catch (err) {
+		console.log("ini error", err);
 		throw err;
 	}
 };
@@ -36,6 +37,7 @@ const createTransactionItemsQuery = async (
 		});
 		return result;
 	} catch (err) {
+		console.log("ini error", err);
 		throw err;
 	}
 };
@@ -53,6 +55,7 @@ const updateProductQuantityQuery = async (
 		});
 		return result;
 	} catch (err) {
+		console.log("ini error", err);
 		throw err;
 	}
 };
