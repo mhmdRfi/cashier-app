@@ -22,8 +22,15 @@ interface TransactionItem {
 }
 
 interface Product {
+  id: number;
+  image: string | null;
   name: string;
+  sku: string | null;
+  status: string | null;
   price: number;
+  markup: number | null;
+  quantity: number;
+  description: string;
 }
 
 
@@ -62,7 +69,11 @@ const TransactionItemList: React.FC<{ items: TransactionItem[]; onItemClick: (pr
   );
 };
 
-const ProductDetails: React.FC<{ product: Product }> = ({ product }) => {
+const ProductDetails: React.FC<{ product: Product | null }> = ({ product }) => {
+  if (!product) {
+    return <p>No product found.</p>;
+  }
+
   return (
     <div>
       <h3>{`Product: ${product.name}`}</h3>
@@ -217,12 +228,11 @@ const ReportTransaction = () => {
             )}
             {selectedItem && (
               <ProductDetails
-                product={
-                  data.find((transaction) =>
-                    transaction.transaction_item.some((item) => item.product.id === selectedItem)
-                  )?.transaction_item.find((item) => item.product.id === selectedItem)?.product || {}
-                }
-              />
+              product={
+                  data.find((transaction) => transaction.transaction_item.some((item) => item.product.id === selectedItem))?.transaction_item.find((item) => item.product.id === selectedItem)?.product
+                      || null
+              }
+          />
             )}
           </ModalBody>
           <ModalFooter>
