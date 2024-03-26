@@ -63,9 +63,9 @@ const authReducer = createSlice({
 });
 
 export const login = (email: string, password: string) => {
-	return async (dispatch: Dispatch) => {
-		toast.loading
+	return async (dispatch: Dispatch) => {	
 		try {
+			toast.loading("Loading . . .")
 			const res = await axios.post(
 				`${import.meta.env.VITE_APP_API_BASE_URL}/auth/login`,
 				{
