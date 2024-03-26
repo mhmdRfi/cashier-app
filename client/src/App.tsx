@@ -13,7 +13,7 @@ import { LoggedInRoute, LogInRoute } from "./components/Auth/LoggedInUserRoute";
 // import "./App.css";
 import { ProductLists } from "./pages/ProductLists/ProductLists";
 // import { SidebarWithHeader } from "./components/SideBar/SideBar";
-// import { Report } from "./pages/Report/Report";
+import { Report } from "./pages/Report/Report";
 import { AddProduct } from "./pages/AddProduct/AddProduct";
 import { ProductDetail } from "./pages/ProductDetail/ProductDetail";
 import { EditProduct } from "./pages/EditProduct/EditProduct";
@@ -85,6 +85,7 @@ function App() {
 						path="/dashboard-admin"
 						element={<DashboardAdmin />}
 					/>
+          <Route path="/report" element={<Report />} />
         </Routes>
       </Auth>
     </Box>
