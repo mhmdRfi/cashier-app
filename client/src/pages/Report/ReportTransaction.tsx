@@ -69,10 +69,13 @@ const TransactionItemList: React.FC<{ items: TransactionItem[]; onItemClick: (pr
 };
 
 const ProductDetails: React.FC<{ product: Product }> = ({ product }) => {
+  // Type assertion to ensure product is of type Product
+  const validProduct = product as Product;
+
   return (
     <div>
-      <h3>{`Product: ${product.name}`}</h3>
-      <p>{`Price: ${product.price}`}</p>
+      <h3>{`Product: ${validProduct.name}`}</h3>
+      <p>{`Price: ${validProduct.price}`}</p>
       {/* Add more details as needed */}
     </div>
   );
