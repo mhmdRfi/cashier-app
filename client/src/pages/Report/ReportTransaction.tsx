@@ -22,9 +22,21 @@ interface TransactionItem {
 }
 
 interface Product {
+  id: number;
+  image: string;
   name: string;
+  sku: string;
+  status: string;
   price: number;
-  // Add more properties as needed
+  markup: number;
+  quantity: number;
+  description: string;
+  categories: {
+    category: {
+      id: string;
+      category: string;
+    }
+  }[];
 }
 
 interface Transaction {
