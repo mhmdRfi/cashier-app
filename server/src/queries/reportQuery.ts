@@ -100,7 +100,7 @@ console.log("ini di query", transactionId);
       
       return res;
     } catch (err) {
-      console.log("ini error", err);
+      console.log("ini error create sales report wuery", err);
 		throw err;
     }
 };
