@@ -21,21 +21,23 @@ interface TransactionItem {
   total_quantity: number;
 }
 
+interface Category {
+  id: string;
+  category: string;
+}
+
 interface Product {
   id: number;
-  image: string;
+  image: string | null;
   name: string;
-  sku: string;
-  status: string;
+  sku: string | null;
+  status: string | null;
   price: number;
-  markup: number;
+  markup: number | null;
   quantity: number;
   description: string;
   categories: {
-    category: {
-      id: string;
-      category: string;
-    }
+    category: Category;
   }[];
 }
 
