@@ -21,11 +21,6 @@ interface TransactionItem {
   total_quantity: number;
 }
 
-interface Category {
-  id: string;
-  category: string;
-}
-
 interface Product {
   id: number;
   image: string | null;
@@ -37,7 +32,10 @@ interface Product {
   quantity: number;
   description: string;
   categories: {
-    category: Category;
+    category: {
+      id: string;
+      category: string;
+    };
   }[];
 }
 
