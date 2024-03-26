@@ -1,27 +1,22 @@
 {
-    "version": 2,
-    "builds": [
-      {
-        "src": "src/index.ts",
-        "use": "@vercel/node",
-        "config": {
-          "prerun": {
-            "commands": [
-              "npx prisma generate"
-            ]
-          }
+  "version": 2,
+  "builds": [
+    {
+      "src": "src/index.ts",
+      "use": "@vercel/node",
+      "config": {
+        "prerun": {
+          "commands": ["npx prisma generate"]
         }
       }
-    ],
-    "routes": [
-      { "src": "/(.*)", "dest": "src/index.ts" }
-    ],
-    "env": {
-      "DATABASE_URL": "mysql://u1103648_admin:Kepuhrubuh1994@185.229.118.90:3306/u1103648_jcwd021001",
-      "PORT": "8080",
-      "JWT_SECRET_KEY": "SerVond",
-      "GMAIL_USER": "jcwd021001@gmail.com",
-      "GMAIL_PASS": "voikvmtnfysxtloz"
     }
+  ],
+  "routes": [{ "src": "/(.*)", "dest": "src/index.ts" }],
+  "env": {
+    "DATABASE_URL": "mysql://u1103648_admin:Kepuhrubuh1994@185.229.118.90:3306/u1103648_jcwd021001",
+    "PORT": "8080",
+    "JWT_SECRET_KEY": "SerVond",
+    "GMAIL_USER": "pureluxwear@gmail.com",
+    "GMAIL_PASS": "iiwyleoekyiliite"
   }
-  
+}
