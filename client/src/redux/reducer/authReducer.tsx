@@ -65,7 +65,7 @@ const authReducer = createSlice({
 export const login = (email: string, password: string) => {
 	return async (dispatch: Dispatch) => {	
 		try {
-			toast.loading("Loading . . .")
+			const loadingToastId = toast.loading("Logging you in . . .")
 			const res = await axios.post(
 				`${import.meta.env.VITE_APP_API_BASE_URL}/auth/login`,
 				{
@@ -77,7 +77,9 @@ export const login = (email: string, password: string) => {
 			localStorage.setItem("token", res?.data?.data?.token);
 			dispatch(setUser(res?.data?.data?.user));
 			dispatch(loginSuccess());
-			toast.success("login is successful")
+			toast.success("login is successful", {
+				id: loadingToastId
+			})
 			return res?.data?.data?.user;
 		} catch (err) {
 			if (err && axios.isAxiosError(err)) {

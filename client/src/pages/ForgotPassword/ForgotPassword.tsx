@@ -23,25 +23,30 @@ function ForgotPassword() {
     const navigate = useNavigate();
     const [loading, setLoading] = useState(false);
 
-    const forgotPassword = async (
-        email: string,
-      ) => {
-        try{ 
-          setLoading(true);
-          const loadingToastId = toast.loading("Sending reset password link to your email")
-          await axios.patch(`${import.meta.env.VITE_APP_API_BASE_URL}/auth/forgot-password`, {
+    const forgotPassword = async (email: string) => {
+      let loadingToastId;
+      try {
+        loadingToastId = toast.loading("Sending reset password link to your email");
+        setLoading(true);
+        await axios.patch(`${import.meta.env.VITE_APP_API_BASE_URL}/auth/forgot-password`, {
           email,
         });
         setLoading(false);
         toast.success("Link to reset password has been sent to your email", {
           id: loadingToastId
-        })
+        });
         navigate('/');
-        } catch (err){
-          console.log(err)
-          toast.error("Email doesn't exist")
+      } catch (err) {
+        console.log(err);
+        if (loadingToastId) {
+          toast.error("Email doesn't exist", {
+            id: loadingToastId
+          });
         }
-      };
+        setLoading(false);
+      }
+    };
+    
 
 
     
