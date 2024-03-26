@@ -31,12 +31,6 @@ interface Product {
   markup: number | null;
   quantity: number;
   description: string;
-  categories: {
-    category: {
-      id: string;
-      category: string;
-    };
-  }[];
 }
 
 interface Transaction {
